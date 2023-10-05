@@ -11,6 +11,9 @@
 		52BA0A222ACF3CEE00DE852D /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52BA0A212ACF3CEE00DE852D /* ContentView.swift */; };
 		52BA0A242ACF3CEE00DE852D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 52BA0A232ACF3CEE00DE852D /* Assets.xcassets */; };
 		52BA0A272ACF3CEE00DE852D /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 52BA0A262ACF3CEE00DE852D /* Preview Assets.xcassets */; };
+		52BA0A2E2ACF457000DE852D /* AuthView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52BA0A2D2ACF457000DE852D /* AuthView.swift */; };
+		52BA0A302ACF459500DE852D /* AuthViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52BA0A2F2ACF459500DE852D /* AuthViewModel.swift */; };
+		52BA0A322ACF45A700DE852D /* AuthService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52BA0A312ACF45A600DE852D /* AuthService.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -19,6 +22,9 @@
 		52BA0A212ACF3CEE00DE852D /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		52BA0A232ACF3CEE00DE852D /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		52BA0A262ACF3CEE00DE852D /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		52BA0A2D2ACF457000DE852D /* AuthView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthView.swift; sourceTree = "<group>"; };
+		52BA0A2F2ACF459500DE852D /* AuthViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthViewModel.swift; sourceTree = "<group>"; };
+		52BA0A312ACF45A600DE852D /* AuthService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthService.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -53,6 +59,7 @@
 			children = (
 				52BA0A1F2ACF3CEE00DE852D /* ChatBotApp.swift */,
 				52BA0A212ACF3CEE00DE852D /* ContentView.swift */,
+				52BA0A332ACF45B700DE852D /* Authentication */,
 				52BA0A232ACF3CEE00DE852D /* Assets.xcassets */,
 				52BA0A252ACF3CEE00DE852D /* Preview Content */,
 			);
@@ -65,6 +72,16 @@
 				52BA0A262ACF3CEE00DE852D /* Preview Assets.xcassets */,
 			);
 			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		52BA0A332ACF45B700DE852D /* Authentication */ = {
+			isa = PBXGroup;
+			children = (
+				52BA0A2D2ACF457000DE852D /* AuthView.swift */,
+				52BA0A2F2ACF459500DE852D /* AuthViewModel.swift */,
+				52BA0A312ACF45A600DE852D /* AuthService.swift */,
+			);
+			path = Authentication;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -137,8 +154,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				52BA0A302ACF459500DE852D /* AuthViewModel.swift in Sources */,
 				52BA0A222ACF3CEE00DE852D /* ContentView.swift in Sources */,
+				52BA0A322ACF45A700DE852D /* AuthService.swift in Sources */,
 				52BA0A202ACF3CEE00DE852D /* ChatBotApp.swift in Sources */,
+				52BA0A2E2ACF457000DE852D /* AuthView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
