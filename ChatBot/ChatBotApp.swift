@@ -9,9 +9,17 @@ import SwiftUI
 
 @main
 struct ChatBotApp: App {
+    
+    @ObservedObject var appState: AppState = AppState()
+    
     var body: some Scene {
         WindowGroup {
-            ContentView()
+            if appState.isLoggedIn {
+                ContentView()
+            } else {
+                AuthView()
+                    .environmentObject(appState)
+            }
         }
     }
 }
