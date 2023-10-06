@@ -9,27 +9,31 @@ import SwiftUI
 
 struct AuthView: View {
     @ObservedObject var viewModel: AuthViewModel = AuthViewModel()
+    @EnvironmentObject var appState: AppState
     var body: some View {
         VStack {
             Text("Chat GPT iOS App")
                 .font(.title)
                 .bold()
-            TextField("email", text: $viewModel.emailText)
+            TextField("email", text: $viewModel.emailTextField)
                 .modifier(CustomTextFieldStyle())
-            
-            SecureField("Password", text: $viewModel.passwordText)
-                .modifier(CustomTextFieldStyle())
-            
-            Button {
-                viewModel.authenticate()
-            } label: {
-                Text("Login")
+            if viewModel.isPasswordVisible {
+                SecureField("Password", text: $viewModel.passwordTextField)
+                    .modifier(CustomTextFieldStyle())
             }
-            .padding()
-            .foregroundStyle(.white)
-            .background(Color.blue)
-            .clipShape(RoundedRectangle(cornerRadius: 12, style: .circular))
-            
+            if viewModel.isLoading {
+                ProgressView()
+            } else {
+                Button {
+                    viewModel.authenticate(appState: appState)
+                } label: {
+                    Text(viewModel.isPasswordVisible ? "Create User" : "Login")
+                }
+                .padding()
+                .foregroundStyle(.white)
+                .background(Color.blue)
+                .clipShape(RoundedRectangle(cornerRadius: 12, style: .circular))
+            }
         }
         .padding()
     }
