@@ -19,6 +19,12 @@
 		52BA0A3A2AD07C5300DE852D /* FirebaseFirestore in Frameworks */ = {isa = PBXBuildFile; productRef = 52BA0A392AD07C5300DE852D /* FirebaseFirestore */; };
 		52BA0A3C2AD07C5300DE852D /* FirebaseFirestoreSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 52BA0A3B2AD07C5300DE852D /* FirebaseFirestoreSwift */; };
 		52BA0A3E2AD0815200DE852D /* AppState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52BA0A3D2AD0815200DE852D /* AppState.swift */; };
+		52BA0A412AD0ACF300DE852D /* ChatListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52BA0A402AD0ACF300DE852D /* ChatListView.swift */; };
+		52BA0A432AD0AD0700DE852D /* ChatListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52BA0A422AD0AD0700DE852D /* ChatListViewModel.swift */; };
+		52BA0A462AD1D3F500DE852D /* ChatView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52BA0A452AD1D3F500DE852D /* ChatView.swift */; };
+		52BA0A492AD1D40F00DE852D /* ProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52BA0A482AD1D40F00DE852D /* ProfileView.swift */; };
+		52BA0A4B2AD1D4CC00DE852D /* ChatViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52BA0A4A2AD1D4CC00DE852D /* ChatViewModel.swift */; };
+		52BA0A4E2AD1D8B000DE852D /* OpenAI in Frameworks */ = {isa = PBXBuildFile; productRef = 52BA0A4D2AD1D8B000DE852D /* OpenAI */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -32,6 +38,11 @@
 		52BA0A312ACF45A600DE852D /* AuthService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthService.swift; sourceTree = "<group>"; };
 		52BA0A342AD07A5500DE852D /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		52BA0A3D2AD0815200DE852D /* AppState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppState.swift; sourceTree = "<group>"; };
+		52BA0A402AD0ACF300DE852D /* ChatListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatListView.swift; sourceTree = "<group>"; };
+		52BA0A422AD0AD0700DE852D /* ChatListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatListViewModel.swift; sourceTree = "<group>"; };
+		52BA0A452AD1D3F500DE852D /* ChatView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatView.swift; sourceTree = "<group>"; };
+		52BA0A482AD1D40F00DE852D /* ProfileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileView.swift; sourceTree = "<group>"; };
+		52BA0A4A2AD1D4CC00DE852D /* ChatViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatViewModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -41,6 +52,7 @@
 			files = (
 				52BA0A382AD07C5300DE852D /* FirebaseAuth in Frameworks */,
 				52BA0A3A2AD07C5300DE852D /* FirebaseFirestore in Frameworks */,
+				52BA0A4E2AD1D8B000DE852D /* OpenAI in Frameworks */,
 				52BA0A3C2AD07C5300DE852D /* FirebaseFirestoreSwift in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -67,13 +79,16 @@
 		52BA0A1E2ACF3CEE00DE852D /* ChatBot */ = {
 			isa = PBXGroup;
 			children = (
-				52BA0A342AD07A5500DE852D /* GoogleService-Info.plist */,
 				52BA0A1F2ACF3CEE00DE852D /* ChatBotApp.swift */,
 				52BA0A212ACF3CEE00DE852D /* ContentView.swift */,
+				52BA0A3D2AD0815200DE852D /* AppState.swift */,
 				52BA0A332ACF45B700DE852D /* Authentication */,
+				52BA0A3F2AD0ACD600DE852D /* ChatList */,
+				52BA0A442AD1D3CA00DE852D /* Chat */,
+				52BA0A472AD1D40000DE852D /* Profile */,
 				52BA0A232ACF3CEE00DE852D /* Assets.xcassets */,
 				52BA0A252ACF3CEE00DE852D /* Preview Content */,
-				52BA0A3D2AD0815200DE852D /* AppState.swift */,
+				52BA0A342AD07A5500DE852D /* GoogleService-Info.plist */,
 			);
 			path = ChatBot;
 			sourceTree = "<group>";
@@ -96,6 +111,32 @@
 			path = Authentication;
 			sourceTree = "<group>";
 		};
+		52BA0A3F2AD0ACD600DE852D /* ChatList */ = {
+			isa = PBXGroup;
+			children = (
+				52BA0A402AD0ACF300DE852D /* ChatListView.swift */,
+				52BA0A422AD0AD0700DE852D /* ChatListViewModel.swift */,
+			);
+			path = ChatList;
+			sourceTree = "<group>";
+		};
+		52BA0A442AD1D3CA00DE852D /* Chat */ = {
+			isa = PBXGroup;
+			children = (
+				52BA0A452AD1D3F500DE852D /* ChatView.swift */,
+				52BA0A4A2AD1D4CC00DE852D /* ChatViewModel.swift */,
+			);
+			path = Chat;
+			sourceTree = "<group>";
+		};
+		52BA0A472AD1D40000DE852D /* Profile */ = {
+			isa = PBXGroup;
+			children = (
+				52BA0A482AD1D40F00DE852D /* ProfileView.swift */,
+			);
+			path = Profile;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -116,6 +157,7 @@
 				52BA0A372AD07C5300DE852D /* FirebaseAuth */,
 				52BA0A392AD07C5300DE852D /* FirebaseFirestore */,
 				52BA0A3B2AD07C5300DE852D /* FirebaseFirestoreSwift */,
+				52BA0A4D2AD1D8B000DE852D /* OpenAI */,
 			);
 			productName = ChatBot;
 			productReference = 52BA0A1C2ACF3CEE00DE852D /* ChatBot.app */;
@@ -147,6 +189,7 @@
 			mainGroup = 52BA0A132ACF3CED00DE852D;
 			packageReferences = (
 				52BA0A362AD07C5300DE852D /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */,
+				52BA0A4C2AD1D8B000DE852D /* XCRemoteSwiftPackageReference "OpenAI" */,
 			);
 			productRefGroup = 52BA0A1D2ACF3CEE00DE852D /* Products */;
 			projectDirPath = "";
@@ -177,9 +220,14 @@
 			files = (
 				52BA0A302ACF459500DE852D /* AuthViewModel.swift in Sources */,
 				52BA0A222ACF3CEE00DE852D /* ContentView.swift in Sources */,
+				52BA0A492AD1D40F00DE852D /* ProfileView.swift in Sources */,
+				52BA0A432AD0AD0700DE852D /* ChatListViewModel.swift in Sources */,
 				52BA0A322ACF45A700DE852D /* AuthService.swift in Sources */,
+				52BA0A462AD1D3F500DE852D /* ChatView.swift in Sources */,
+				52BA0A412AD0ACF300DE852D /* ChatListView.swift in Sources */,
 				52BA0A3E2AD0815200DE852D /* AppState.swift in Sources */,
 				52BA0A202ACF3CEE00DE852D /* ChatBotApp.swift in Sources */,
+				52BA0A4B2AD1D4CC00DE852D /* ChatViewModel.swift in Sources */,
 				52BA0A2E2ACF457000DE852D /* AuthView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -391,6 +439,14 @@
 				minimumVersion = 10.0.0;
 			};
 		};
+		52BA0A4C2AD1D8B000DE852D /* XCRemoteSwiftPackageReference "OpenAI" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/MacPaw/OpenAI.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 0.2.4;
+			};
+		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
@@ -408,6 +464,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 52BA0A362AD07C5300DE852D /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
 			productName = FirebaseFirestoreSwift;
+		};
+		52BA0A4D2AD1D8B000DE852D /* OpenAI */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 52BA0A4C2AD1D8B000DE852D /* XCRemoteSwiftPackageReference "OpenAI" */;
+			productName = OpenAI;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};
