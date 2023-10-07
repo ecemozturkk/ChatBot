@@ -24,6 +24,7 @@
 		52BA0A462AD1D3F500DE852D /* ChatView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52BA0A452AD1D3F500DE852D /* ChatView.swift */; };
 		52BA0A492AD1D40F00DE852D /* ProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52BA0A482AD1D40F00DE852D /* ProfileView.swift */; };
 		52BA0A4B2AD1D4CC00DE852D /* ChatViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52BA0A4A2AD1D4CC00DE852D /* ChatViewModel.swift */; };
+		52BA0A4E2AD1D8B000DE852D /* OpenAI in Frameworks */ = {isa = PBXBuildFile; productRef = 52BA0A4D2AD1D8B000DE852D /* OpenAI */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -51,6 +52,7 @@
 			files = (
 				52BA0A382AD07C5300DE852D /* FirebaseAuth in Frameworks */,
 				52BA0A3A2AD07C5300DE852D /* FirebaseFirestore in Frameworks */,
+				52BA0A4E2AD1D8B000DE852D /* OpenAI in Frameworks */,
 				52BA0A3C2AD07C5300DE852D /* FirebaseFirestoreSwift in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -155,6 +157,7 @@
 				52BA0A372AD07C5300DE852D /* FirebaseAuth */,
 				52BA0A392AD07C5300DE852D /* FirebaseFirestore */,
 				52BA0A3B2AD07C5300DE852D /* FirebaseFirestoreSwift */,
+				52BA0A4D2AD1D8B000DE852D /* OpenAI */,
 			);
 			productName = ChatBot;
 			productReference = 52BA0A1C2ACF3CEE00DE852D /* ChatBot.app */;
@@ -186,6 +189,7 @@
 			mainGroup = 52BA0A132ACF3CED00DE852D;
 			packageReferences = (
 				52BA0A362AD07C5300DE852D /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */,
+				52BA0A4C2AD1D8B000DE852D /* XCRemoteSwiftPackageReference "OpenAI" */,
 			);
 			productRefGroup = 52BA0A1D2ACF3CEE00DE852D /* Products */;
 			projectDirPath = "";
@@ -435,6 +439,14 @@
 				minimumVersion = 10.0.0;
 			};
 		};
+		52BA0A4C2AD1D8B000DE852D /* XCRemoteSwiftPackageReference "OpenAI" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/MacPaw/OpenAI.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 0.2.4;
+			};
+		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
@@ -452,6 +464,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 52BA0A362AD07C5300DE852D /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
 			productName = FirebaseFirestoreSwift;
+		};
+		52BA0A4D2AD1D8B000DE852D /* OpenAI */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 52BA0A4C2AD1D8B000DE852D /* XCRemoteSwiftPackageReference "OpenAI" */;
+			productName = OpenAI;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};
