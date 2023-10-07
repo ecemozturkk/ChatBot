@@ -11,6 +11,7 @@ import SwiftUI
 import Firebase
 
 class AppState: ObservableObject {
+    
     @Published var currentUser: User?
     @Published var navigationPath = NavigationPath()
     
@@ -18,7 +19,7 @@ class AppState: ObservableObject {
         return currentUser != nil
     }
     
-    init() {
+    init(){
         FirebaseApp.configure()
         
         if let currentUser = Auth.auth().currentUser {

@@ -9,13 +9,12 @@ import SwiftUI
 
 @main
 struct ChatBotApp: App {
-    
     @ObservedObject var appState: AppState = AppState()
     
     var body: some Scene {
         WindowGroup {
             if appState.isLoggedIn {
-                NavigationStack(path: $appState.navigationPath) {
+                NavigationStack(path: $appState.navigationPath){
                     ChatListView()
                         .environmentObject(appState)
                 }
