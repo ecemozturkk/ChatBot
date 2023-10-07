@@ -16,16 +16,16 @@ class AuthViewModel: ObservableObject {
     @Published var doesUserExist = false
     
     let authService = AuthService()
-    
     func authenticate(appState: AppState) {
         isLoading = true
-        Task {
-            do {
-                if isPasswordVisible {
+        
+        Task{
+            do{
+                if isPasswordVisible{
                     let result = try await authService.login(email: emailTextField, password: passwordTextField, userExists: doesUserExist)
                     await MainActor.run(body: {
                         guard let result = result else {return}
-                        // Update app state
+                        // Update App State
                         appState.currentUser = result.user
                     })
                 } else {
@@ -35,9 +35,10 @@ class AuthViewModel: ObservableObject {
                 isLoading = false
             } catch {
                 print(error)
-                await MainActor.run(body: {
+                await MainActor.run{
                     isLoading = false
-                })
+                    
+                }
             }
         }
     }

@@ -9,19 +9,20 @@ import SwiftUI
 
 struct ChatListView: View {
     @StateObject var viewModel = ChatListViewModel()
+    @EnvironmentObject var appState: AppState
     var body: some View {
-        Group {
-            switch viewModel.loadingState {
-            case .loading, .none:
-                Text("Loading chats")
+        Group{
+            switch viewModel.loadingState{
+            case .loading:
+                Text("Loading chats...")
             case .noResults:
-                Text("No chats")
-            case .resultFound:
-                List {
-                    ForEach(viewModel.chats) { chat in
+                Text("No chats...")
+            case .resultFound, .none:
+                List{
+                    ForEach(viewModel.chats) {chat in
                         NavigationLink(value: chat.id) {
-                            VStack(alignment: .leading) {
-                                HStack {
+                            VStack(alignment: .leading){
+                                HStack{
                                     Text(chat.topic ?? "New Chat")
                                         .font(.headline)
                                     Spacer()
@@ -30,7 +31,7 @@ struct ChatListView: View {
                                         .fontWeight(.semibold)
                                         .foregroundStyle(chat.model?.tintColor ?? .white)
                                         .padding(6)
-                                        .background((chat.model?.tintColor ?? .white).opacity(0.1))
+                                        .background((chat.model?.tintColor ?? .white).opacity(0.2))
                                         .clipShape(Capsule(style: .continuous))
                                 }
                                 Text(chat.lastMessageTimeAgo)
@@ -38,13 +39,12 @@ struct ChatListView: View {
                                     .foregroundStyle(.gray)
                             }
                         }
-                        .swipeActions {
+                        .swipeActions(){
                             Button(role: .destructive) {
                                 viewModel.deleteChat(chat: chat)
                             } label: {
                                 Label("Delete", systemImage: "trash.fill")
                             }
-
                         }
                     }
                 }
@@ -52,30 +52,43 @@ struct ChatListView: View {
         }
         .navigationTitle("Chats")
         .toolbar(content: {
-            ToolbarItem(placement: .navigationBarTrailing) {
+            // TOOLBARITEM 1
+            ToolbarItem(placement: .navigationBarTrailing){
                 Button {
                     viewModel.showProfile()
                 } label: {
                     Image(systemName: "person")
                 }
             }
-            ToolbarItem(placement: .navigationBarTrailing) {
+            // TOOLBARITEM 2
+            ToolbarItem(placement: .navigationBarTrailing){
                 Button {
-                    viewModel.createChat()
+                    Task{
+                        do{
+                            let chatID = try await viewModel.createChat(user: appState.currentUser?.uid)
+                            appState.navigationPath.append(chatID)
+                        } catch{
+                            print(error)
+                        }
+                    }
+                    
                 } label: {
                     Image(systemName: "square.and.pencil")
                 }
             }
         })
+        
         .sheet(isPresented: $viewModel.isShowingProfileView) {
             ProfileView()
         }
-        .navigationDestination(for: String.self, destination: { chatID in
-            ChatView(viewModel: .init(chatID: chatID))
+        
+        .navigationDestination(for: String.self, destination: {chatId in ChatView(viewModel: .init(chatId: chatId))
+            
         })
-        .onAppear {
+        
+        .onAppear(){
             if viewModel.loadingState == .none {
-                viewModel.fetchData()
+                viewModel.fetchData(user: appState.currentUser?.uid)
             }
         }
     }

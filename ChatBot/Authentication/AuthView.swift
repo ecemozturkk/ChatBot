@@ -8,32 +8,43 @@
 import SwiftUI
 
 struct AuthView: View {
-    @ObservedObject var viewModel: AuthViewModel = AuthViewModel()
+    @ObservedObject var viewModel : AuthViewModel = AuthViewModel()
     @EnvironmentObject var appState: AppState
+    
     var body: some View {
-        VStack {
-            Text("Chat GPT iOS App")
+        VStack{
+            Text("AI Travel Pal")
                 .font(.title)
                 .bold()
-            TextField("email", text: $viewModel.emailTextField)
-                .modifier(CustomTextFieldStyle())
+            TextField("Email", text: $viewModel.emailTextField)
+                .padding()
+                .background(Color.gray.opacity(0.1))
+                .textInputAutocapitalization(.never)
+                .clipShape(RoundedRectangle(cornerRadius: 12))
+            
             if viewModel.isPasswordVisible {
                 SecureField("Password", text: $viewModel.passwordTextField)
-                    .modifier(CustomTextFieldStyle())
+                    .padding()
+                    .background(Color.gray.opacity(0.1))
+                    .textInputAutocapitalization(.never)
+                    .clipShape(RoundedRectangle(cornerRadius: 12))
             }
-            if viewModel.isLoading {
+            
+            if viewModel.isLoading{
                 ProgressView()
             } else {
-                Button {
+                
+                Button{
                     viewModel.authenticate(appState: appState)
-                } label: {
-                    Text(viewModel.isPasswordVisible ? "Create User" : "Login")
+                }label: {
+                    Text(viewModel.doesUserExist ? "Log In" : "Create User")
                 }
                 .padding()
-                .foregroundStyle(.white)
+                .foregroundStyle(Color.white)
                 .background(Color.blue)
-                .clipShape(RoundedRectangle(cornerRadius: 12, style: .circular))
+                .clipShape(RoundedRectangle(cornerRadius: 12, style: .continuous))
             }
+            
         }
         .padding()
     }
@@ -42,15 +53,5 @@ struct AuthView: View {
 struct AuthView_Previews: PreviewProvider {
     static var previews: some View {
         AuthView()
-    }
-}
-
-struct CustomTextFieldStyle: ViewModifier {
-    func body(content: Content) -> some View {
-        content
-            .padding()
-            .background(Color.gray.opacity(0.1))
-            .textInputAutocapitalization(.never)
-            .clipShape(RoundedRectangle(cornerRadius: 12))
     }
 }

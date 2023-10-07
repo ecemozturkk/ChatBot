@@ -19,11 +19,12 @@ class AuthService {
     }
     
     func login(email: String, password: String, userExists: Bool) async throws -> AuthDataResult? {
-        guard !password.isEmpty else { return nil}
+        guard !password.isEmpty else {return nil}
         if userExists {
             return try await Auth.auth().signIn(withEmail: email, password: password)
         } else {
             return try await Auth.auth().createUser(withEmail: email, password: password)
         }
     }
+    
 }
